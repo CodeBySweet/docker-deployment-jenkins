@@ -24,8 +24,10 @@ pipeline{
             }           
         }
 
-        // stage('imageRemove'){
-
-        // }
+        stage('imageRemove'){
+            steps{
+                sh "docker rmi ${IMAGE_URL}"
+            }
+        }
     }
 }
