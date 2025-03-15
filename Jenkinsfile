@@ -1,11 +1,25 @@
 pipeline{
     agent any
 
+    environment{
+        DOCKER_TAG = "V.${BUILD_NUMBER}"
+        DOCKER_IMAGE_NAME = "myapp"
+        DOCKER_HUB_USERNAME = "sweetcoder7"
+    }
+
     stages{
-        stage('test'){
+        stage('imageBuild'){
             steps{
-                echo 'testing connection! 2'
+                sh "docker build -t ${DOCKER_HUB_USERNAME}/${DOCKER_IMAGE_NAME}:${DOCKER_TAG}"
             }
         }
+
+        // stage('imagePush'){
+
+        // }
+
+        // stage('imageRemove'){
+
+        // }
     }
 }
