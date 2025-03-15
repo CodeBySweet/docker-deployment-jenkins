@@ -21,8 +21,8 @@ pipeline{
             }           
         }
 
-        stage('imageRemove'){
+        // stage('imageRemove'){
 
-        }
+        // }
     }
 }
